@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thời Khóa Biểu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="khungKhoaBieu">
+            <div class="thanhTrangTren">
+                <h2 class="textThanhTren">Lịch học</h2>
+            </div>
+
+            <div class="thoiKhoaBieuVaLich">
+                <div class="thoiKhoaBieu">
+                    <div class="thanhTrangTren2">
+                        <h3 class="textThanhTren2">Lịch cá nhân</h3>
+                    </div>
+                    <div class="khungLich">
+                        <div class="khungNgay">
+                            <div class="dongHo"><p class="textThu">Time</p></div>
+                            <div class="ngay"><p class="textThu">Mon</p></div>
+                            <div class="ngay"><p class="textThu">Tue</p></div>
+                            <div class="ngay"><p class="textThu">Wed</p></div>
+                            <div class="ngay"><p class="textThu">Thu</p></div>
+                            <div class="ngay"><p class="textThu">Fri</p></div>
+                            <div class="ngay"><p class="textThu">Sat</p></div>
+                            <div class="ngay"><p class="textThu">Sun</p></div>
+                        </div>
+                        <div class="khungBuoiHoc">
+                            <div class="gioHoc" id="gioHoc"></div>
+                            <div class="cacMonHoc" id="cacMonHoc">
+                                <div class="ngayHoc" id="thu2"></div>
+                                <div class="ngayHoc" id="thu3"></div>
+                                <div class="ngayHoc" id="thu4"></div>
+                                <div class="ngayHoc" id="thu5"></div>
+                                <div class="ngayHoc" id="thu6"></div>
+                                <div class="ngayHoc" id="thu7"></div>
+                                <div class="ngayHoc" id="thu8"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="khungLichHoc" id="khungLichHoc">
+                    <div class="title-search">Tìm kiếm theo ngày: </div>
+                    <div class="input-group">
+                        <label for="day">Ngày:</label>
+                        <input type="number" id="day" placeholder="Ngày (1-31)" min="1" max="31">
+                    </div>
+                    <div class="input-group">
+                        <label for="month">Tháng:</label>
+                        <input type="number" id="month" placeholder="Tháng (1-12)" min="1" max="12">
+                    </div>
+                    <div class="input-group">
+                        <label for="year">Năm:</label>
+                        <input type="number" id="year" placeholder="Năm (YYYY)" min="1900">
+                    </div>
+
+                    <div class="button-search">
+                        <button onclick="searchDate()">Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="container2">
+        <button class="close-btn" onclick="hideContainer2()">X</button>
+        <div class="hang-1">
+            <span class="hang-1-1">Học phần: Lập trình C#</span>
+            <span class="hang-1-2">- 07:00 - 09:40 (Tiết 1-3) (Phòng học: VPC2-404)</span>
+            <span class="hang-1-3">Ngày: 1-3-23 Lớp: 23IT3</span>
+        </div>
+
+        <div class="sinh-vien">
+            <div class="hang-2-sv">
+                <div class="hang-2-container-sv">
+                    <label for="keyword-sv">Từ khóa điểm danh</label>
+                    <input type="text" id="keyword-sv" placeholder="Từ khóa điểm danh">
+                    <button id="save-keyword-sv">Lưu</button>
+                </div>
+            </div>   
+
+            <div class="hang-3-sv">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã số</th>
+                            <th>Họ đệm</th>
+                            <th>Tên</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-list-sv">
+                        <!-- Dữ liệu sinh viên sẽ được chèn vào đây -->
+                    </tbody>
+                </table>
+            </div>     
+        </div>
+
+        <div class="giao-vien">
+            <div class="hang-2-gv">
+                <div class="hang-2-container-gv">
+                    <span   class="hang-2-1-gv">ĐIỂM DANH TỰ ĐỘNG    </span>
+
+                    <label class="hang-2-2-gv" for="keyword-gv">Từ khóa điểm danh</label>
+                    <input class="hang-2-3-gv" type="text" id="keyword-gv" placeholder="Nhập từ khóa">
+                    <button class="hang-2-4-gv" id="save-keyword-gv">Lưu từ khóa </button>
+                    <button class="hang-2-5-gv">Lưu điểm danh tự động</button>
+                </div>
+            </div>
+            <div class="hang-3-gv">
+                <div class="hang-3-container-gv">
+                    <span   class="hang-3-1-gv">ĐIỂM DANH THỦ CÔNG    </span>
+                    <span   class="hang-3-2-gv">Sĩ số: 40             </span>
+                    <span   class="hang-3-3-gv">Có mặt: 40            </span>
+                    <span   class="hang-3-4-gv">Vắng mặt: 0           </span>
+                    <span   class="hang-3-5-gv">Vắng mặt có phép: 0   </span>
+                    <button class="hang-3-6-gv">LƯU ĐIỂM DANH THỦ CÔNG</button>
+                </div>
+            </div>
+            <div class="hang-4-gv">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Số tiết vắng tích lũy</th>
+                        <th>Mã số</th>
+                        <th>Họ đệm</th>
+                        <th>Tên</th>
+                        <th>Tự điểm danh</th>
+                        <th>Vắng mặt</th>
+                        <th>Vắng mặt có phép</th>
+                        <th>Có mặt</th>
+                    </tr>
+                    </thead>
+                    <tbody id="student-list-gv">
+                        <!-- Dữ liệu sinh viên sẽ được chèn vào đây -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

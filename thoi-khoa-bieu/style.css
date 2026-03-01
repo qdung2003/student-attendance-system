@@ -1,0 +1,391 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #223771; /* Nền tổng thể */
+    position: relative;
+}
+
+.container {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1100px;
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung vượt quá kích thước */
+    position: relative; /* Thiết lập để `container2` có thể đè lên */
+    z-index: 1; /* Đặt giá trị thấp hơn để `container2` có thể đè lên */
+}
+
+.khungKhoaBieu {
+    display: grid;
+    grid-template-rows: 50px 1000px;
+    row-gap: 30px;
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    background-color: #bbc9f1;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.thanhTrangTren {
+    display: flex;
+    align-items: center; 
+    padding-left: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    border-top-left-radius: 30px;
+}
+
+.textThanhTren {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.thoiKhoaBieuVaLich {
+    display: grid;
+    grid-template-columns: 77% 20%; 
+    column-gap: 3%;
+    margin: 0 2.5%;
+}
+
+.thoiKhoaBieu {
+    display: grid;
+    grid-template-rows: 50px 950px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.thanhTrangTren2 {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-bottom: 0.2px solid #ccc;
+}
+
+.textThanhTren2 {
+    margin: 0;
+    color: #223771;
+}
+
+.khungLich {
+    display: grid;
+    grid-template-rows: 50px 900px;
+    box-sizing: border-box;
+}
+
+.khungNgay {
+    display: grid;
+    grid-template-columns: 9% repeat(7, 1fr);
+    border-bottom: 1px solid #223771;
+}
+
+.dongHo, .ngay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ngay {
+    border-left: 1px solid #223771;
+}
+
+.textThu {
+    font-size: 10px;
+    color: #000;
+}
+
+.khungBuoiHoc {
+    display: grid;
+    grid-template-columns: 9% 91%;
+}
+
+.gioHoc, .ngayHoc {
+    display: grid;
+    grid-template-rows: repeat(26, 1fr);
+    position: relative;
+}
+
+.cacMonHoc {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+}
+
+.gio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 12px;
+    color: #000;
+}
+
+.buoi {
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-label {
+    position: absolute; /* Đặt vị trí tuyệt đối để căn giữa */
+    top: 83%;
+    text-align: center;
+    font-size: 12px;
+    color: #000;
+}
+
+.khungLichHoc {
+    display: flex;
+    height: 300px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.title-search {
+    margin-bottom: 15px; /* Khoảng cách giữa tiêu đề và các trường nhập liệu */
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Khoảng cách giữa các nhóm trường nhập liệu */
+}
+
+.input-group label {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.input-group input {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100px; /* Chiều rộng của ô nhập liệu */
+}
+
+.khungLichHoc button {
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.khungLichHoc button:hover {
+    background-color: #45a049;
+}
+
+.button-search {
+    display: flex;
+    justify-content: center; /* Căn giữa nút bấm trong khung */
+    width: 100%; /* Đảm bảo nút bấm có chiều rộng đầy đủ của khung */
+}
+
+.schedule-item {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #bbc9f1;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    color: white;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+
+
+.overlay {
+    position: fixed; /* Đảm bảo lớp phủ phủ toàn màn hình */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền tối với độ mờ 50% */
+    display: none; /* Ẩn theo mặc định */
+    z-index: 9; /* Đặt thấp hơn container2 nhưng cao hơn các phần tử khác */
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px; /* Khoảng cách từ trên cùng */
+    right: 10px; /* Khoảng cách từ bên phải */
+    background-color: white; /* Màu nền đỏ */
+    color: grey; /* Màu chữ trắng */
+    border: none;
+    border-radius: 50%; /* Để nút hình tròn */
+    width: 30px; /* Chiều rộng của nút */
+    height: 30px; /* Chiều cao của nút */
+    font-size: 16px;
+    cursor: pointer; /* Thay đổi con trỏ khi di chuột vào nút */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 11; /* Đặt giá trị cao hơn để nút nằm trên cùng */
+}
+
+.close-btn:hover {
+    color: black; /* Màu nền đỏ đậm khi hover */
+}
+
+.container2 {
+    position: absolute; /* Để nó có thể đè lên các phần tử khác */
+    display: none; /* Ẩn theo mặc định */
+    width: 80%;
+    height: 90vh;
+    margin: 0 auto;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    z-index: 10; /* Đảm bảo nó đè lên các phần tử khác */
+    top: 10%; /* Đặt vị trí từ trên xuống */
+    left: 10%; /* Đặt vị trí từ bên trái */
+    background-color: white; /* Nền trắng cho container2 */
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+th, td {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    text-align: center;
+}
+  
+th {
+    background-color: #f2f2f2;
+}
+
+.hang-1-1, .hang-1-3, .hang-2-1-gv, .hang-3-1-gv, .hang-3-2-gv, .hang-3-6-gv
+{
+    font-weight: bold;
+}
+  
+.hang-1-2 {
+    color: #acacac;
+}
+  
+.hang-1 {
+    padding: 10px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.hang-2-sv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#keyword-sv {
+    padding: 5px; 
+    margin: 0 10px;
+}
+
+#save-keyword-sv {
+    padding: 5px 10px; /* Tạo khoảng cách bên trong cho nút */
+    cursor: pointer; /* Thay đổi con trỏ khi hover nút */
+    background-color: white;
+    border: 1px solid #85a5ff;
+    color: #85a5ff;
+    border-radius: 3px;
+}
+
+#save-button-sv:hover {
+    background-color: #223771;
+    color: white;
+    border: none;
+}
+
+  
+.hang-2-sv, .hang-2-gv, .hang-3-gv {
+    padding: 4px;
+}
+  
+.hang2-sv, .hang-2-gv {
+    margin: 0 10px 2px 10px;
+    background-color: #223671;
+}
+  
+.hang-2-container-sv, .hang-2-container-gv, .hang-3-container-gv {
+    display: flex;
+    align-items: center;
+}
+  
+.hang-2-1-gv, .hang-2-2-gv, .hang-2-3-gv, .hang-2-4-gv, .hang-2-5-gv,
+.hang-3-1-gv, .hang-3-2-gv, .hang-3-3-gv, .hang-3-4-gv, .hang-3-5-gv, .hang-3-6-gv
+{
+    padding: 10px;
+}
+  
+.hang-2-1-gv, .hang-2-2-gv, .hang-2-5-gv,
+.hang-3-1-gv, .hang-3-2-gv, .hang-3-3-gv, .hang-3-4-gv, .hang-3-5-gv
+{
+    color: white;
+}
+  
+.hang-2-3-gv, .hang-2-4-gv, .hang-2-5-gv, .hang-3-6-gv {
+    border: none;
+}
+  
+.hang-2-1-gv, .hang-3-1-gv {
+    margin-right: auto; 
+}
+  
+.hang-2-3-gv {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    margin: 0 1px 0 10px;
+}
+  
+.hang-2-4-gv {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: #188753;
+    background-color: white;
+}
+  
+.hang-2-5-gv {
+    border-radius: 3px;
+    background-color: #188753;
+    margin-left: 15px;
+}
+  
+  
+.hang-3-gv {
+    margin: 0 10px;
+    background-color: #f9843e;
+}
+  
+.hang-3-6-gv {
+    border-radius: 3px;
+    background-color: white;
+    color: #f9843e;
+}
+  
+.hang-3-sv, .hang-4-gv {
+    margin: 0 10px;
+}
+ 
+.hang-4-gv input[type="number"] {
+    width: 30px;
+}
+  
