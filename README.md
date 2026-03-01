@@ -12,7 +12,7 @@ Hệ thống điểm danh sinh viên với giao diện web, hỗ trợ 2 vai tr�
 
 ## Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript (Vanilla)
+- **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Node.js, Express.js
 - **Database:** PostgreSQL
 
